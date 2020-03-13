@@ -1,0 +1,44 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tsx",
+  "author": "garryk3",
+  "license": "ISC",
+  "scripts": {
+    "eslint": "eslint . --max-warnings 0 --cache",
+    "eslint:check": "eslint --ext .ts,.tsx --max-warnings 0 src/",
+    "eslint:autofix": "eslint --fix --ext .ts,.tsx src/",
+    "stylelint:check": "stylelint \"src/**/*.pcss\"",
+    "start": "rimraf build/* && parcel -p 4000 public/index.html --open --out-dir build",
+    "build": "rimraf build/* && parcel build public/index.html --out-dir build",
+    "run:visual": "static-server -i build/report.html -o"
+  },
+  "alias": {
+    "@routes": "./src/routes",
+    "@components": "./src/components",
+    "@utils": "./src/utils"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "eslint:check && stylelint:check"
+    }
+  },
+  "dependencies": {
+    "@rematch/core": "^1.4.0",
+    "classnames": "^2.2.6",
+    "preact": "^10.3.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "husky": "^4.2.3",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "parcel-plugin-clean-dist": "^0.0.6",
+    "parcel-plugin-compress": "^1.1.0",
+    "parcel-plugin-imagemin": "^4.0.1",
+    "rimraf": "^3.0.2",
+    "static-server": "^2.2.1",
+    "typescript": "^3.8.3"
+  }
+}
