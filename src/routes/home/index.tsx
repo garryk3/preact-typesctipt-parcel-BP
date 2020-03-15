@@ -2,7 +2,7 @@ import { h } from "preact";
 import { memo } from 'preact/compat';
 
 const Home = (props: {}) => {
-    return <div>Home</div>
+    return <div>Home!11111!</div>
 }
 
 export default memo(Home);

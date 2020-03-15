@@ -1,13 +1,11 @@
 import { h } from "preact";
 import { memo } from 'preact/compat';
 
-import Router from "@components/router";
+import Layout from "components/layout";
 
 const App = (props: {}) => {
     return (
-        <div>
-            <Router />
-        </div>
+        <Layout />
     )
 }
 

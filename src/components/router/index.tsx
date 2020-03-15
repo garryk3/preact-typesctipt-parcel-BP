@@ -3,7 +3,7 @@ import { memo, useCallback } from 'preact/compat';
 import { Router as PreactRouter, route, RouterOnChangeArgs } from 'preact-router';
 import AsyncRoute from 'preact-async-route';
 
-import checkIsAuth from '@components/auth/check-is-auth';
+import checkIsAuth from 'components/auth/check-is-auth';
 
 import { AppUrls } from './enums';
 
@@ -18,7 +18,11 @@ const Router = () => {
         <PreactRouter onChange={onChangeRoute}>
             <AsyncRoute
                 path={AppUrls.Home}
-                getComponent={ () => import('@routes/home/index').then(module => module.default) }
+                getComponent={ () => import('../../routes/home').then(module => module.default) }
+            />
+            <AsyncRoute
+                path={AppUrls.Login}
+                getComponent={ () => import('../../routes/login').then(module => module.default) }
             />
         </PreactRouter>
     )

@@ -2,7 +2,7 @@
   "name": "boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.tsx",
+  "main": "src/index.tsx",
   "author": "garryk3",
   "license": "ISC",
   "scripts": {
@@ -10,22 +10,16 @@
     "eslint:check": "eslint --ext .ts,.tsx --max-warnings 0 src/",
     "eslint:autofix": "eslint --fix --ext .ts,.tsx src/",
     "stylelint:check": "stylelint \"src/**/*.pcss\"",
-    "start": "rimraf build/* && parcel -p 4000 public/index.html --open --out-dir build",
+    "start": "rimraf build/* && parcel -p 4000 public/index.html --out-dir build",
     "build": "rimraf build/* && parcel build public/index.html --out-dir build",
-    "report:bundle-size": "rimraf build/* && build && static-server -i build/report.html -o"
-  },
-  "_moduleAliases": {
-    "@routes/*": "src/routes/*",
-    "@components/*": "src/components/*",
-    "@utils/*": "src/utils/*",
-    "@config/*": "config/*"
+    "report:bundle-size": "yarn build && static-server -i build/report.html -o"
   },
   "alias": {
     "react": "preact-compat",
     "react-dom": "preact-compat",
-    "@routes": "./src/routes",
-    "@components": "./src/components",
-    "@utils": "./src/utils"
+    "routes": "./src/routes",
+    "components": "./src/components",
+    "utils": "./src/utils"
   },
   "husky": {
     "hooks": {
@@ -36,14 +30,17 @@
     "@material-ui/core": "^4.9.5",
     "@rematch/core": "^1.4.0",
     "classnames": "^2.2.6",
+    "components": "^0.1.0",
     "preact": "^10.3.4",
     "preact-async-route": "^2.2.1",
-    "preact-router": "^3.2.1"
+    "preact-router": "^3.2.1",
+    "routes": "^2.1.0",
+    "src": "^1.1.2"
   },
   "devDependencies": {
+    "@types/parcel-env": "^0.0.0",
     "eslint": "^5.3.0",
     "husky": "^4.2.3",
-    "module-alias": "^2.2.2",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-clean-dist": "^0.0.6",
