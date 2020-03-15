@@ -1,12 +1,10 @@
-import { h } from "preact";
+import { h } from 'preact';
 import { memo } from 'preact/compat';
 
-import Layout from "components/layout";
+import Layout from 'components/layout';
 
-const App = (props: {}) => {
-    return (
+const App = () => (
         <Layout />
-    )
-}
+);
 
 export default memo(App);

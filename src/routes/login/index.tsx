@@ -1,8 +1,6 @@
-import { h } from "preact";
+import { h } from 'preact';
 import { memo } from 'preact/compat';
 
-const Login = (props: {}) => {
-    return <div>Login</div>
-}
+const Login = () => <div>Login</div>;
 
 export default memo(Login);

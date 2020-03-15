@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h } from 'preact';
 import { memo } from 'preact/compat';
 
 import Grid from '@material-ui/core/Grid';
@@ -15,6 +15,6 @@ const Layout = () => (
             <Router />
         </Grid>
     </Grid>
-)
+);
 
 export default memo(Layout);
