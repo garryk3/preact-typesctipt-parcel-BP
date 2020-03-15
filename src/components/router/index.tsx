@@ -1,9 +1,11 @@
 import { h } from "preact";
-import { memo, useCallback } from 'preact/compat';
+import { memo, useCallback, lazy, Suspense } from 'preact/compat';
 import { Router as PreactRouter, route, RouterOnChangeArgs } from 'preact-router';
-import AsyncRoute from 'preact-async-route';
 
-import checkIsAuth from 'components/auth/check-is-auth';
+import checkIsAuth from 'utils/auth/check-is-auth';
+
+const Home = lazy(() => import('routes/home'));
+const Login = lazy(() => import('routes/login'));
 
 import { AppUrls } from './enums';
 
@@ -15,16 +17,12 @@ const Router = () => {
     }, []);
 
     return ( 
-        <PreactRouter onChange={onChangeRoute}>
-            <AsyncRoute
-                path={AppUrls.Home}
-                getComponent={ () => import('../../routes/home').then(module => module.default) }
-            />
-            <AsyncRoute
-                path={AppUrls.Login}
-                getComponent={ () => import('../../routes/login').then(module => module.default) }
-            />
-        </PreactRouter>
+        <Suspense fallback={<div>loading...</div>}>
+            <PreactRouter onChange={onChangeRoute}>
+                <Home path={AppUrls.Home} />
+                <Login path={AppUrls.Login} />
+            </PreactRouter>
+        </Suspense>
     )
 }
 

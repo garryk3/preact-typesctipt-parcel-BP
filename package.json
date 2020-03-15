@@ -15,8 +15,8 @@
     "report:bundle-size": "yarn build && static-server -i build/report.html -o"
   },
   "alias": {
-    "react": "preact-compat",
-    "react-dom": "preact-compat",
+    "react": "preact/compat",
+    "react-dom": "preact/compat",
     "routes": "./src/routes",
     "components": "./src/components",
     "utils": "./src/utils"
@@ -30,11 +30,8 @@
     "@material-ui/core": "^4.9.5",
     "@rematch/core": "^1.4.0",
     "classnames": "^2.2.6",
-    "components": "^0.1.0",
     "preact": "^10.3.4",
-    "preact-async-route": "^2.2.1",
     "preact-router": "^3.2.1",
-    "routes": "^2.1.0",
     "src": "^1.1.2"
   },
   "devDependencies": {
