@@ -1,6 +1,4 @@
-const enum AppUrls {
-    Home = '/',
-    Login = '/login'
+export enum Urls {
+    HOME = '/',
+    LOGIN = '/login',
 }
-
-export default AppUrls;

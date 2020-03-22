@@ -17,9 +17,9 @@ module.exports =  {
     },
     extends: [
         'airbnb',
-        // 'rules/eslint-airbnb-fix',
-        // 'rules/eslint-base',
-        // 'rules/eslint-react'
+        'rules/eslint-airbnb-fix',
+        'rules/eslint-base',
+        'rules/eslint-react'
     ],
     rules : {
         'no-unused-vars': 'off',

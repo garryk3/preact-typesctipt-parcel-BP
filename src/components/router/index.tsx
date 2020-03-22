@@ -1,31 +1,36 @@
 import { h } from 'preact';
 import {
-  memo, useCallback, lazy, Suspense,
+    memo, useCallback, lazy, Suspense
 } from 'preact/compat';
-import { Router as PreactRouter, route, RouterOnChangeArgs } from 'preact-router';
+import { Router as PreactRouter, RouterOnChangeArgs } from 'preact-router';
+import { useDispatch } from 'react-redux';
 
-import checkIsAuth from 'utils/auth/check-is-auth';
+import Loader from 'components/loader';
 
-import AppUrls from './urls-enum';
+import { Urls } from './urls-enum';
 
-const Home = lazy(() => import('routes/home'));
+
 const Login = lazy(() => import('routes/login'));
+const Home = lazy(() => import('routes/home'));
 
 const Router = () => {
-  const onChangeRoute = useCallback((event: RouterOnChangeArgs) => {
-    if (event.url !== AppUrls.Login && !checkIsAuth()) {
-      route(AppUrls.Login, true);
-    }
-  }, []);
+    const dispatch: AppTypes.Dispatch = useDispatch();
 
-  return (
-        <Suspense fallback={<div>loading...</div>}>
+    const onChangeRoute = useCallback((event: RouterOnChangeArgs) => {
+        dispatch.router.transition({
+            current : event.current.props,
+            previous: event.previous ?? null
+        });
+    }, [dispatch.router]);
+
+    return (
+        <Suspense fallback={<Loader />}>
             <PreactRouter onChange={onChangeRoute}>
-                <Home path={AppUrls.Home} />
-                <Login path={AppUrls.Login} />
+                <Login path={Urls.LOGIN} />
+                <Home path={Urls.HOME} />
             </PreactRouter>
         </Suspense>
-  );
+    );
 };
 
 export default memo(Router);
