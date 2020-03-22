@@ -5,9 +5,9 @@ import App from 'components/app';
 const node = document.getElementById('app');
 
 function renderApp() {
-  render(<App />, node!);
+    render(<App />, node!);
 }
 
 renderApp();
 
-if (module.hot) module.hot!.accept(renderApp);
+if(module.hot) module.hot!.accept(renderApp);

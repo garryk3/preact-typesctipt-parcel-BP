@@ -2,12 +2,12 @@ import axios, { AxiosInstance } from 'axios';
 
 import { HttpRequestParams } from './types';
 
-const instance = axios.create({
+const baseInstance = axios.create({
     baseURL: 'http://test/api'
 });
 
 const setAuthHeader = (token: string) => {
-    axios.defaults.headers.common['Authorization'] = token;
+    axios.defaults.headers.common.Authorization = token;
 };
 
 export const request = async (instance: AxiosInstance, { url, method = 'POST', params }: HttpRequestParams) => {
@@ -36,9 +36,7 @@ export const request = async (instance: AxiosInstance, { url, method = 'POST', p
     }
 };
 
-const baseRequest = (params: HttpRequestParams) => {
-    return request(instance, params);
-};
+const baseRequest = (params: HttpRequestParams) => request(baseInstance, params);
 
 export default {
     request,

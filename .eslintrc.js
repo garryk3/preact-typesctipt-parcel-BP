@@ -16,18 +16,52 @@ module.exports =  {
         __VERSION__: 'readonly'
     },
     extends: [
-        'airbnb',
-        'rules/eslint-airbnb-fix',
-        'rules/eslint-base',
-        'rules/eslint-react'
+        'airbnb'
     ],
     rules : {
+        indent             : ['warn', 4, {
+            SwitchCase: 1
+        }],
+        'comma-dangle': ['warn', 'never'],
+        'key-spacing' : ['warn', {
+            singleLine: {
+                beforeColon: false,
+                afterColon : true
+            },
+            multiLine: {
+                afterColon: true,
+                align     : 'colon'
+            }
+        }],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': ['error', {
             'vars': 'all',
             'args': 'after-used',
             'ignoreRestSiblings': false,
             'varsIgnorePattern': 'h'
+        }],
+        'no-console': 0,
+        'keyword-spacing': ['warn', {
+            overrides: {
+                if: {
+                    after: false
+                },
+                for: {
+                    after: false
+                },
+                while: {
+                    after: false
+                },
+                catch: {
+                    after: false
+                },
+                switch: {
+                    after: false
+                },
+                return: {
+                    after: true
+                }
+            }
         }],
         'import/extensions': 'off',
         'filenames/match-regex': [2, "^[a-z\-]+$", true],
