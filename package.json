@@ -10,8 +10,8 @@
     "eslint:check": "eslint --ext .ts,.tsx --max-warnings 0 src/",
     "eslint:autofix": "eslint --fix --ext .ts,.tsx src/",
     "stylelint:check": "stylelint \"src/**/*.pcss\"",
-    "start": "rimraf build/* && parcel -p 4000 public/index.html --out-dir build",
-    "build": "rimraf build/* && parcel build public/index.html --out-dir build",
+    "start": "rm -rf build/* && parcel -p 4000 public/index.html --out-dir build",
+    "build": "rm -rf build/* && parcel build public/index.html --out-dir build",
     "report:bundle-size": "yarn build && static-server -i build/report.html -o"
   },
   "alias": {
@@ -41,7 +41,12 @@
     "clsx": "^1.1.0",
     "preact": "^10.3.4",
     "preact-router": "^3.2.1",
-    "react-redux": "^7.2.0"
+    "react-redux": "^7.2.0",
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "parcel-plugin-clean-dist": "^0.0.6",
+    "parcel-plugin-compress": "^1.1.0",
+    "parcel-plugin-imagemin": "^4.0.1"
   },
   "devDependencies": {
     "@types/parcel-env": "^0.0.0",
@@ -59,11 +64,6 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "husky": "^4.2.3",
-    "parcel-bundler": "^1.12.3",
-    "parcel-plugin-bundle-visualiser": "^1.2.0",
-    "parcel-plugin-clean-dist": "^0.0.6",
-    "parcel-plugin-compress": "^1.1.0",
-    "parcel-plugin-imagemin": "^4.0.1",
     "redux-logger": "^3.0.6",
     "rimraf": "^3.0.2",
     "static-server": "^2.2.1",

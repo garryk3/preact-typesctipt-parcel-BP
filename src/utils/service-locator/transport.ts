@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 import { HttpRequestParams } from './types';
 
 const baseInstance = axios.create({
-    baseURL: 'http://test/api'
+    baseURL: process.env.API_URL
 });
 
 const setAuthHeader = (token: string) => {

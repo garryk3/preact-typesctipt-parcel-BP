@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ivsp:
+    container_name: web-app
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+    environment:
+      - API_URL=http://test-api-url
+      - PARCEL_WORKERS=1
+    volumes:
+      - static:/usr/src/app/ivsp/build
+    ports:
+      - '80:80'
+volumes:
+    static:
