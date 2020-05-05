@@ -12,6 +12,7 @@
     "stylelint:check": "stylelint \"src/**/*.pcss\"",
     "start": "rm -rf build/* && parcel -p 4000 public/index.html --out-dir build",
     "build": "rm -rf build/* && parcel build public/index.html --out-dir build",
+    "deploy": "docker-compose down && docker-compose up -d --build",
     "report:bundle-size": "yarn build && static-server -i build/report.html -o"
   },
   "alias": {
@@ -19,7 +20,8 @@
     "react-dom": "preact/compat",
     "routes": "./src/routes",
     "components": "./src/components",
-    "utils": "./src/utils"
+    "utils": "./src/utils",
+    "configs": "./src/configs"
   },
   "husky": {
     "hooks": {
@@ -37,18 +39,20 @@
     "@rematch/immer": "^1.2.0",
     "@rematch/loading": "^1.2.1",
     "@rematch/select": "^2.0.5",
+    "@types/axios": "^0.14.0",
     "axios": "^0.19.2",
     "clsx": "^1.1.0",
-    "preact": "^10.3.4",
-    "preact-router": "^3.2.1",
-    "react-redux": "^7.2.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-clean-dist": "^0.0.6",
     "parcel-plugin-compress": "^1.1.0",
-    "parcel-plugin-imagemin": "^4.0.1"
+    "parcel-plugin-imagemin": "^4.0.1",
+    "preact": "^10.3.4",
+    "preact-router": "^3.2.1",
+    "react-redux": "^7.2.0"
   },
   "devDependencies": {
+    "@types/node": "^13.13.4",
     "@types/parcel-env": "^0.0.0",
     "@types/react": "^16.9.23",
     "@types/react-redux": "^7.1.7",

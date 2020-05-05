@@ -1,4 +1,5 @@
 import transport from './transport';
+import config from '../../configs';
 
 import { Services, ServiceNames } from './types';
 
@@ -17,6 +18,7 @@ export const setService = (serviceName: ServiceNames, service: any) => {
 
 export const initializeServices = () => {
     setService('transport', transport);
+    setService('config', config);
 };
 
 export default serviceLocator;

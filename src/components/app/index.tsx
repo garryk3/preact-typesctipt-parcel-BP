@@ -6,7 +6,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import theme from 'utils/themes/default';
 import store from 'utils/store';
-import { initializeServices } from 'utils/service-locator';
+import { initializeServices, getService } from 'utils/service-locator';
 
 const App = () => {
     useEffect(() => {
@@ -16,7 +16,10 @@ const App = () => {
     return (
         <Provider store={store}>
             <ThemeProvider theme={theme}>
-                App started!
+                <div>
+                    App started!
+                    <button type="button" onClick={() => getService('transport')?.fetch({ url: '/test-url' })}>send request</button>
+                </div>
             </ThemeProvider>
         </Provider>
     );

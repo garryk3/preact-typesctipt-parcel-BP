@@ -1,18 +1,24 @@
 import axios, { AxiosInstance } from 'axios';
 
+import config from 'configs';
 import { HttpRequestParams } from './types';
 
-const baseInstance = axios.create({
-    baseURL: process.env.API_URL
+const instance = axios.create({
+    baseURL: config.API_URL,
+    headers: {
+        'Content-Type': 'application/json'
+    }
 });
 
+console.log('conf', config);
+
 const setAuthHeader = (token: string) => {
-    axios.defaults.headers.common.Authorization = token;
+    instance.defaults.headers.common.Authorization = token;
 };
 
-export const request = async (instance: AxiosInstance, { url, method = 'POST', params }: HttpRequestParams) => {
+export const request = async (currentInstance: AxiosInstance, { url, method = 'POST', params }: HttpRequestParams) => {
     try {
-        const { data, headers, status } = await instance({
+        const { data, headers, status } = await currentInstance({
             url,
             data: params,
             method
@@ -36,10 +42,10 @@ export const request = async (instance: AxiosInstance, { url, method = 'POST', p
     }
 };
 
-const baseRequest = (params: HttpRequestParams) => request(baseInstance, params);
+const fetch = (params: HttpRequestParams) => request(instance, params);
 
 export default {
     request,
-    baseRequest,
+    fetch,
     setAuthHeader
 };

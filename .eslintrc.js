@@ -103,7 +103,8 @@ module.exports =  {
             files: ['*.ts', '*.tsx'],
             rules: {
                 'react/prop-types': 'off',
-                'no-multi-spaces': 'off'
+                'no-multi-spaces': 'off',
+                'linebreak-style': 'off'
             }
         }
     ],
@@ -114,6 +115,7 @@ module.exports =  {
               ['components', './src/components'],
               ['routes', './src/routes'],
               ['utils', './src/utils'],
+              ['configs', './src/configs'],
             ],
             extensions: ['.ts', '.tsx']
           }

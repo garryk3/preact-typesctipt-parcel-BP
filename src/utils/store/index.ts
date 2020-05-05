@@ -1,17 +1,22 @@
 import { init } from '@rematch/core';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { createLogger } from 'redux-logger';
 
 import { models } from './models';
 import plugins from './plugins';
+
+const middlewares: any[] = [];
+
+if(process.env.NODE_ENV !== 'development') {
+    // eslint-disable-next-line global-require
+    const { createLogger } = require('redux-logger');
+
+    middlewares.push(createLogger());
+}
 
 const store = init({
     models,
     plugins,
     redux: {
-        middlewares: [
-            createLogger()
-        ]
+        middlewares
     }
 });
 

@@ -2,7 +2,7 @@ import transport from './transport';
 
 export type HttpMethods = 'GET' | 'POST';
 
-export type ServiceNames = 'transport' | 'logger';
+export type ServiceNames = 'transport' | 'logger' | 'config';
 
 export interface HttpParams {
     [index: string]: string | string[] | number | HttpParams;
