@@ -1,4 +1,4 @@
-import { RouterReducer, TrasnsitionPayload } from './types';
+import { RouterReducer, TransitionPayload } from './types';
 
 const initialState: RouterReducer = {
     current : null,
@@ -8,7 +8,7 @@ const initialState: RouterReducer = {
 export default {
     state   : initialState,
     reducers: {
-        transition(state: RouterReducer, payload: TrasnsitionPayload) {
+        transition(state: RouterReducer, payload: TransitionPayload) {
             return payload;
         }
     }

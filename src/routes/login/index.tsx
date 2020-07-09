@@ -1,6 +1,10 @@
 import { h } from 'preact';
 import { memo } from 'preact/compat';
 
-const Login = () => <div>Login</div>;
+import classes from './style.pcss';
+
+console.log(classes);
+
+const Login = () => <div className={classes.login}>Login</div>;
 
 export default memo(Login);

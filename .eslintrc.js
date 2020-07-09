@@ -9,12 +9,6 @@ module.exports =  {
         node: true,
         jest: true
     },
-    globals: {
-        __CLIENT__: 'readonly',
-        __SERVER__: 'readonly',
-        __DEVELOPMENT__: 'readonly',
-        __VERSION__: 'readonly'
-    },
     extends: [
         'airbnb'
     ],
