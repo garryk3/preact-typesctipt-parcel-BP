@@ -1,7 +1,5 @@
 import { h } from 'preact';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-
 import useStyles from './styles';
 
 export default function CircularIndeterminate() {
@@ -9,7 +7,7 @@ export default function CircularIndeterminate() {
 
     return (
         <div className={classes.root}>
-            <CircularProgress />
+            loader
         </div>
     );
 }

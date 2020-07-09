@@ -1,6 +1,6 @@
 export enum Urls {
     HOME = '/',
-    LOGIN = '/login',
+    LOGIN = '/',
 }
 
 export default {

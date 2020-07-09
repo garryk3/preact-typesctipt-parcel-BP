@@ -4,13 +4,20 @@ declare namespace AppTypes {
     type Dispatch = import('./utils/store/types').Dispatch;
 
     interface Event {
-        target: EventTarget & {
-            value?: string;
-        } | null;
-        preventDefault: Function;
+        [index: string]: any;
     }
 
     interface RequestError {
         message: string;
     }
+}
+
+declare module '*.svg' {
+    const content: any;
+    export default content;
+}
+
+declare module '*.pcss' {
+    const content: any;
+    export default content;
 }

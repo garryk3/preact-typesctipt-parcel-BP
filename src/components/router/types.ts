@@ -1,23 +1,36 @@
 import { RouterOnChangeArgs } from 'preact-router';
 
-import { Urls } from './urls-enum';
-
-export type AppUrls = Urls;
+export type Matches = {
+    [index: string]: string;
+};
 
 export interface Route {
-    matches: {
-        [index: string]: any;
-    }
+    matches: Matches;
     path: string;
     url: string;
-}
-
-export interface TrasnsitionPayload {
-    current : RouterOnChangeArgs['current']['props'];
-    previous: RouterOnChangeArgs['previous'] | null;
+    [index: string]: string | Matches;
 }
 
 export interface RouterReducer {
     current: Route | null;
     previous: string | null;
 }
+
+export interface RouterOnChangeParams extends RouterOnChangeArgs {
+    current: {
+        props: {
+            path: string;
+        } & RouterOnChangeArgs['current']['props'];
+    } & RouterOnChangeArgs['current'];
+}
+export interface TransitionPayload {
+    current : RouterOnChangeParams['current']['props'];
+    previous: RouterOnChangeParams['previous'] | null;
+}
+
+export interface MiddlewarsParams {
+    event: RouterOnChangeParams;
+    dispatch: AppTypes.Dispatch;
+}
+
+export type Middleware = (params: MiddlewarsParams) => void | number;
