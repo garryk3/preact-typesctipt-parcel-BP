@@ -37,7 +37,7 @@
     "@rematch/immer": "^1.2.0",
     "@rematch/loading": "^1.2.1",
     "@rematch/select": "^2.0.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "clsx": "^1.1.0",
     "preact": "^10.3.4",
     "preact-router": "^3.2.1",
